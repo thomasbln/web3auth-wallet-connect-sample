@@ -51,7 +51,7 @@ export default function WalletComponent({ lng = "en", currentUser, idToken }: Pr
         setIsWeb3AuthInitialized(true);
         console.log("Web3Auth initialized");
 
-        // Automatische Anmeldung nach der Initialisierung
+        // login after initialization
         const idTokenResult = getIdToken();
         console.log("idTokenResult", idTokenResult);
         const { payload } = decodeToken(idTokenResult);
@@ -63,7 +63,7 @@ export default function WalletComponent({ lng = "en", currentUser, idToken }: Pr
         setIsLoggedIn(true);
         setIsLoggingIn(false);
 
-        // Benutzerinfo nach erfolgreicher Anmeldung abrufen
+        // Retrieve user information after successful login
         const userInfo = await web3authSfa.getUserInfo();
         setUserInfo(userInfo);
         uiConsole(userInfo);
